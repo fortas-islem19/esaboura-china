@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import logo from '../assets/logo-mark.png'
 
 const links = [
+  { href: '#video', label: 'الفيديو' },
   { href: '#trip', label: 'الرحلة' },
   { href: '#dates', label: 'التواريخ' },
   { href: '#offer', label: 'العرض' },

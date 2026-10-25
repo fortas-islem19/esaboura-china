@@ -1333,3 +1333,145 @@ section,
 .choice-row {
   scroll-margin-top: 110px;
 }
+
+/* ---------- Video ---------- */
+.video-head p {
+  max-width: 620px;
+}
+
+/* Wide 16:9 player */
+.player {
+  position: relative;
+  max-width: 980px;
+  margin-inline: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 26px;
+  padding: 8px;
+  background: linear-gradient(135deg, var(--yellow), var(--purple-400) 45%, var(--red));
+  box-shadow:
+    0 40px 90px -30px rgba(0, 0, 0, 0.85),
+    0 0 110px -30px rgba(138, 11, 214, 0.9);
+}
+
+.player video,
+.video-cover {
+  position: absolute;
+  inset: 8px;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  border-radius: 20px;
+  object-fit: cover;
+  background: #000;
+}
+
+.video-cover {
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.video-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.video-cover:hover img {
+  transform: scale(1.03);
+}
+
+/* Pulse sits on the play button drawn into the thumbnail */
+.play-pulse {
+  position: absolute;
+  left: 33.3%;
+  top: 50%;
+  width: 11.5%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  border: 4px solid var(--yellow);
+  pointer-events: none;
+}
+
+.chapters {
+  list-style: none;
+  padding: 0;
+  margin: 32px auto 0;
+  max-width: 980px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.chapter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.chapter:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.chapter.active {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--purple-900);
+}
+
+.chapter-time {
+  flex: none;
+  direction: ltr;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: var(--purple-500);
+  color: var(--white);
+}
+
+.chapter.active .chapter-time {
+  background: var(--purple-900);
+}
+
+@media (max-width: 600px) {
+  .player {
+    border-radius: 18px;
+    padding: 5px;
+  }
+  .player video,
+  .video-cover {
+    inset: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    border-radius: 14px;
+  }
+  /* One swipeable row instead of a tall stack */
+  .chapters {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+    margin-top: 22px;
+  }
+  .chapters::-webkit-scrollbar {
+    display: none;
+  }
+  .chapter {
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+}
