@@ -7,7 +7,7 @@ The branding follows the Esaboura "CHINA" motion video: deep purple backgrounds 
 ## Sections
 
 1. Hero: 中国 title, "اطلبوا العلم ولو في الصين", and the planet-and-ring visual
-2. Video: the 40-second trip video in a phone frame with a branded thumbnail, plus topic buttons that jump to each part of the video
+2. Video: a wide 16:9 player with a branded thumbnail, plus topic buttons that jump to each part of the video
 3. The trip: سياحية · ثقافية, with polaroid photos
 4. Winter break dates: 17 December → 1 January, falling snow, a 16-day counter
 5. Location: Hebei province near Beijing, with an animated flight route
@@ -54,8 +54,8 @@ src/
   lib/wilayas.js          list of the 58 Algerian wilayas
   assets/                 logo and photos taken from the brand video
 public/video/
-  china-trip.mp4             the trip video, compressed to 720p (loads only when played)
-  china-trip-thumbnail.jpg   video thumbnail (720x1280)
+  china-trip.mp4             16:9 trip video, 1280x720 (loads only when played)
+  china-trip-thumbnail.jpg   video thumbnail, 1280x720
 ```
 
-To change the video, replace `public/video/china-trip.mp4` and update the topic timestamps in `src/components/VideoSection.jsx`.
+`china-trip.mp4` is currently the vertical brand video placed on a blurred 16:9 background. To use a real landscape video, replace that file (keep the name, or update `VIDEO_SRC`) and update the topic timestamps in `src/components/VideoSection.jsx`.

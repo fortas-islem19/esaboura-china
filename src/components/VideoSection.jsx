@@ -49,49 +49,28 @@ export default function VideoSection() {
     <section className="video-section purple-bg" id="video">
       <div className="glow" style={{ width: 380, height: 380, background: '#dc240c', top: '20%', right: '-6%', opacity: 0.3 }} />
 
-      <div className="container video-grid">
-        <div className="video-copy">
+      <div className="container">
+        <div className="section-head video-head">
           <Reveal>
             <span className="pill pill-red">
               <span className="dot">▶</span>
               شاهد الفيديو
             </span>
           </Reveal>
-          <Reveal delay={0.1} as="h2">
+          <Reveal delay={0.1} as="h2" style={{ marginTop: 18 }}>
             كل التفاصيل في <span className="hl">40 ثانية</span>
           </Reveal>
-          <Reveal delay={0.2} as="p" className="video-lead">
+          <Reveal delay={0.2} as="p">
             شاهد الفيديو لتعرف كل شيء عن الرحلة: الوجهة، التواريخ، ما يشمله العرض والشهادة. اضغط على أي موضوع للانتقال إليه مباشرة.
           </Reveal>
-
-          <ol className="chapters">
-            {chapters.map((c, i) => (
-              <motion.li
-                key={c.t}
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: 0.2 + i * 0.07 }}
-              >
-                <button
-                  type="button"
-                  className={`chapter${started && i === current ? ' active' : ''}`}
-                  onClick={() => play(c.t)}
-                >
-                  <span className="chapter-time">{fmt(c.t)}</span>
-                  {c.label}
-                </button>
-              </motion.li>
-            ))}
-          </ol>
         </div>
 
         <motion.div
-          className="phone"
-          initial={{ opacity: 0, y: 80, rotate: 6 }}
-          whileInView={{ opacity: 1, y: 0, rotate: -2 }}
+          className="player"
+          initial={{ opacity: 0, y: 80, scale: 0.94 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ type: 'spring', stiffness: 90, damping: 14 }}
+          transition={{ type: 'spring', stiffness: 90, damping: 16 }}
         >
           <video
             ref={videoRef}
@@ -111,7 +90,7 @@ export default function VideoSection() {
                 className="video-cover"
                 onClick={() => play()}
                 aria-label="تشغيل الفيديو"
-                exit={{ opacity: 0, scale: 1.1 }}
+                exit={{ opacity: 0, scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 <img src={POSTER_SRC} alt="" />
@@ -124,6 +103,27 @@ export default function VideoSection() {
             )}
           </AnimatePresence>
         </motion.div>
+
+        <ol className="chapters">
+          {chapters.map((c, i) => (
+            <motion.li
+              key={c.t}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ delay: 0.1 + i * 0.06 }}
+            >
+              <button
+                type="button"
+                className={`chapter${started && i === current ? ' active' : ''}`}
+                onClick={() => play(c.t)}
+              >
+                <span className="chapter-time">{fmt(c.t)}</span>
+                {c.label}
+              </button>
+            </motion.li>
+          ))}
+        </ol>
       </div>
     </section>
   )
