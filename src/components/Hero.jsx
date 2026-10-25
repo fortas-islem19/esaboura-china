@@ -116,7 +116,7 @@ export default function Hero() {
       </div>
 
       <motion.a
-        href="#trip"
+        href="#video"
         className="scroll-hint"
         aria-label="انزل للأسفل"
         initial={{ opacity: 0 }}

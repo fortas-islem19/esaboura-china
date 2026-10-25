@@ -1,6 +1,7 @@
 import { motion, useScroll, useSpring } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import VideoSection from './components/VideoSection'
 import Trip from './components/Trip'
 import Winter from './components/Winter'
 import Location from './components/Location'
@@ -32,6 +33,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <VideoSection />
         <Trip />
         <Winter />
         <Location />
