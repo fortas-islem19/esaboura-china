@@ -1,0 +1,35 @@
+import { motion } from 'framer-motion'
+import logo from '../assets/logo-mark.png'
+import { Pop } from './Motion'
+
+export default function Footer() {
+  return (
+    <footer className="footer purple-bg" style={{ background: 'radial-gradient(70% 60% at 50% 30%, #8a0bd6, #3c0661 70%, #26043f)' }}>
+      <div className="container">
+        <motion.img
+          src={logo}
+          alt=""
+          className="logo-big"
+          initial={{ opacity: 0, scale: 0.4, rotate: -30 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: 'spring', stiffness: 150, damping: 14 }}
+        />
+        <motion.div
+          className="name"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          السبورة
+        </motion.div>
+        <div className="latin">Esaboura</div>
+        <Pop delay={0.6}>
+          <span className="pill pill-yellow">تابعونا للمزيد</span>
+        </Pop>
+        <small>© {new Date().getFullYear()} السبورة — جميع الحقوق محفوظة</small>
+      </div>
+    </footer>
+  )
+}
