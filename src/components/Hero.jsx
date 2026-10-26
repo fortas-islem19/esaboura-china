@@ -59,6 +59,7 @@ export default function Hero() {
               { cls: 'pill-red', text: '17 ديسمبر ← 1 جانفي' },
               { cls: 'pill-white', text: '16 يوماً' },
               { cls: 'pill-yellow', text: `للطلبة ${formatDA(PRICES.student)}` },
+              { cls: 'pill-yellow', text: `لغير الطلبة ${formatDA(PRICES.worker)}` },
             ].map((c) => (
               <motion.span
                 key={c.text}
