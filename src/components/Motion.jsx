@@ -37,7 +37,7 @@ export function Pop({ children, delay = 0, rotate = 0, className, style }) {
 }
 
 // Counts up from `from` to `to` when scrolled into view.
-export function Counter({ from = 0, to, duration = 1.6, className }) {
+export function Counter({ from = 0, to, duration = 1.6, className, format = (v) => v }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, amount: 0.6 })
   const [value, setValue] = useState(from)
@@ -54,7 +54,7 @@ export function Counter({ from = 0, to, duration = 1.6, className }) {
 
   return (
     <span ref={ref} className={className}>
-      {value}
+      {format(value)}
     </span>
   )
 }

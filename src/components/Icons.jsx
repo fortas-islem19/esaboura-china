@@ -62,3 +62,45 @@ export const SeatIcon = ({ color }) => (
     />
   </svg>
 )
+
+export const UsersIcon = (p) => (
+  <svg {...base} {...p}>
+    <circle cx="9" cy="8" r="3.5" />
+    <path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a5.5 5.5 0 0 1 3.5 6" />
+  </svg>
+)
+
+export const BusIcon = (p) => (
+  <svg {...base} {...p}>
+    <rect x="4" y="3" width="16" height="15" rx="3" />
+    <path d="M4 11h16M8 21v-3M16 21v-3" />
+    <circle cx="8" cy="14.5" r="0.8" fill="currentColor" />
+    <circle cx="16" cy="14.5" r="0.8" fill="currentColor" />
+  </svg>
+)
+
+export const SparkIcon = (p) => (
+  <svg {...base} {...p}>
+    <path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z" />
+  </svg>
+)
+
+export const XIcon = (p) => (
+  <svg {...base} strokeWidth={3} {...p}>
+    <path d="M6 6l12 12M18 6L6 18" />
+  </svg>
+)
+
+export const DocIcon = (p) => (
+  <svg {...base} {...p}>
+    <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+    <path d="M14 3v5h5M9 13h6M9 17h4" />
+  </svg>
+)
+
+export const ClockIcon = (p) => (
+  <svg {...base} {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7v5l3 2" />
+  </svg>
+)

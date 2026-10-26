@@ -5,9 +5,13 @@ import { Reveal } from './Motion'
 const route = 'M60 330 C 150 120, 300 60, 400 150'
 
 const points = [
-  { title: 'مقاطعة خبي', latin: 'Hebei · 河北', text: 'وجهتنا في شمال الصين' },
-  { title: 'بالقرب من العاصمة بكين', latin: 'Beijing · 北京', text: 'على مقربة من قلب الصين التاريخي' },
-  { title: 'سور الصين العظيم', latin: 'The Great Wall · 长城', text: 'من أشهر معالم المنطقة' },
+  { title: 'مدينة شيجياتشوانغ', latin: 'Shijiazhuang · 石家庄', text: 'عاصمة مقاطعة خبي في شمال الصين، بالقرب من بكين' },
+  {
+    title: 'جامعة خبي للدراسات الدولية',
+    latin: 'Hebei International Studies University · 河北外国语学院',
+    text: 'أكبر حرم جامعي في خبي — مكان الإقامة والأنشطة',
+  },
+  { title: 'الوصول عبر مطار بكين الدولي', latin: 'Beijing · 北京', text: 'ثم الانتقال إلى الجامعة في نفس اليوم' },
 ]
 
 export default function Location() {
@@ -16,14 +20,14 @@ export default function Location() {
       <div className="container">
         <Reveal className="section-head">
           <h2>
-            في <span className="hl">مقاطعة خبي</span>
+            في <span className="hl">شيجياتشوانغ</span>
           </h2>
-          <p>بالقرب من العاصمة الصينية بكين</p>
+          <p>عاصمة مقاطعة خبي، بالقرب من العاصمة الصينية بكين</p>
         </Reveal>
 
         <div className="location-grid">
           <div className="map-card">
-            <svg viewBox="0 0 460 420" role="img" aria-label="مسار الرحلة من الجزائر إلى بكين">
+            <svg viewBox="0 0 460 420" role="img" aria-label="مسار الرحلة من الجزائر إلى شيجياتشوانغ">
               <defs>
                 <radialGradient id="globe" cx="40%" cy="35%">
                   <stop offset="0" stopColor="#8a0bd6" stopOpacity="0.55" />
@@ -91,7 +95,7 @@ export default function Location() {
               <span className="dot">
                 <PinIcon width={16} height={16} />
               </span>
-              العاصمة بكين
+              شيجياتشوانغ · 石家庄
             </motion.span>
           </div>
 
@@ -110,9 +114,8 @@ export default function Location() {
                 </span>
                 <div>
                   <h3>{p.title}</h3>
-                  <p>
-                    <span className="latin">{p.latin}</span> — {p.text}
-                  </p>
+                  <p className="latin">{p.latin}</p>
+                  <p>{p.text}</p>
                 </div>
               </motion.div>
             ))}

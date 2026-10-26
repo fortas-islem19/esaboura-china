@@ -4,10 +4,11 @@ import logo from '../assets/logo-mark.png'
 
 const links = [
   { href: '#video', label: 'الفيديو' },
-  { href: '#trip', label: 'الرحلة' },
-  { href: '#dates', label: 'التواريخ' },
+  { href: '#where', label: 'الوجهة' },
+  { href: '#program', label: 'البرنامج' },
   { href: '#offer', label: 'العرض' },
-  { href: '#certificate', label: 'الشهادة' },
+  { href: '#prices', label: 'الأسعار' },
+  { href: '#documents', label: 'الملف' },
 ]
 
 export default function Navbar() {

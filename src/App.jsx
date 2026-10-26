@@ -8,6 +8,9 @@ import Location from './components/Location'
 import Offer from './components/Offer'
 import Certificate from './components/Certificate'
 import Deal from './components/Deal'
+import Program from './components/Program'
+import Pricing from './components/Pricing'
+import Documents from './components/Documents'
 import RegisterForm from './components/RegisterForm'
 import Footer from './components/Footer'
 
@@ -37,9 +40,12 @@ export default function App() {
         <Trip />
         <Winter />
         <Location />
+        <Program />
         <Offer />
         <Certificate />
+        <Pricing />
         <Deal />
+        <Documents />
         <RegisterForm />
       </main>
       <Footer />
