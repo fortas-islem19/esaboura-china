@@ -142,7 +142,7 @@ function Success({ name, onReset }) {
         شكراً <bdi>{name.split(' ')[0]}</bdi>!
       </h3>
       <p>تم استلام طلب تسجيلك بنجاح. سيتواصل معك فريق السبورة قريباً لتأكيد مقعدك وتزويدك بباقي التفاصيل.</p>
-      <button type="button" className="btn btn-ghost" style={{ color: '#541183', borderColor: '#dcc2f7', marginTop: 12 }} onClick={onReset}>
+      <button type="button" className="btn btn-ghost" style={{ marginTop: 12 }} onClick={onReset}>
         تسجيل شخص آخر
       </button>
     </motion.div>

@@ -8,9 +8,6 @@ const headline = ['اطلبوا', 'العلم', 'ولو', 'في', 'الصين']
 export default function Hero() {
   return (
     <section className="hero purple-bg" id="top">
-      <div className="glow" style={{ width: 420, height: 420, background: '#8a0bd6', top: '8%', left: '-8%' }} />
-      <div className="glow" style={{ width: 360, height: 360, background: '#dc240c', bottom: '-10%', right: '30%', opacity: 0.35 }} />
-
       <div className="container hero-grid">
         <div>
           <div className="hero-han" aria-hidden="true">

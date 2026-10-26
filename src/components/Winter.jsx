@@ -52,9 +52,9 @@ function CalendarCard({ month, day, year, delay }) {
 
 export default function Winter() {
   return (
-    <section className="winter" id="dates" style={{ '--bg-img': `url(${bg})` }}>
-      <Snow />
-      <div className="container" style={{ textAlign: 'center' }}>
+    <section className="winter" id="dates">
+      <div className="container winter-card" style={{ '--bg-img': `url(${bg})` }}>
+        <Snow />
         <Pop>
           <span className="pill winter-badge">
             <span className="dot">

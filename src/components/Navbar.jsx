@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import logo from '../assets/logo-mark.png'
+import logo from '../assets/logo-mark-white.png'
 
 const links = [
   { href: '#video', label: 'الفيديو' },
