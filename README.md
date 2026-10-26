@@ -51,7 +51,7 @@ Fields sent: الاسم الكامل، رقم الهاتف (واتساب)، ال
 
 ## Programme details
 
-Prices, dates and the deadline live in `src/config.js`. The daily programme (`src/components/Program.jsx`), what's included (`Offer.jsx`) and the required documents (`Documents.jsx`) come from the Winter Camp catalogue in the Google Drive "China" folder.
+Prices, dates, the deadline and the school's phone numbers live in `src/config.js`. The numbers appear in the registration section, the footer and a floating call button. The daily programme (`src/components/Program.jsx`), what's included (`Offer.jsx`) and the required documents (`Documents.jsx`) come from the Winter Camp catalogue in the Google Drive "China" folder.
 
 ## Project structure
 

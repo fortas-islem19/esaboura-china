@@ -1845,3 +1845,123 @@ section,
   font-weight: 700;
   width: fit-content;
 }
+
+/* ---------- Contact ---------- */
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 26px;
+  font-weight: 700;
+}
+
+.footer-contact .pill {
+  transition: transform 0.2s;
+}
+
+.footer-contact .pill:hover {
+  transform: translateY(-2px);
+}
+
+.aside-contact {
+  margin-top: 28px;
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.aside-contact p {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.aside-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-inline-end: 18px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--yellow);
+}
+
+.aside-phone:hover {
+  text-decoration: underline;
+}
+
+/* Floating call button (bottom-left, away from the RTL reading start) */
+.call-fab {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  direction: ltr; /* keep the button pinned to the left corner */
+}
+
+.call-toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  background: var(--yellow);
+  color: var(--purple-900);
+  font-size: 1.4rem;
+  font-weight: 800;
+  box-shadow: 0 6px 0 var(--yellow-deep), 0 16px 34px -10px rgba(0, 0, 0, 0.6);
+}
+
+.call-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid var(--yellow);
+  pointer-events: none;
+}
+
+.call-menu {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 18px;
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 24px 50px -16px rgba(0, 0, 0, 0.7);
+  transform-origin: bottom left;
+  direction: rtl;
+}
+
+.call-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--purple-700);
+}
+
+.call-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #f3e8fd;
+  color: var(--purple-800);
+  font-weight: 800;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+
+.call-link:hover {
+  background: var(--purple-500);
+  color: var(--white);
+}

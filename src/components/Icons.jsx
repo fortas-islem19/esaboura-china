@@ -104,3 +104,9 @@ export const ClockIcon = (p) => (
     <path d="M12 7v5l3 2" />
   </svg>
 )
+
+export const PhoneIcon = (p) => (
+  <svg {...base} {...p}>
+    <path d="M5 3h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3L20 14.5V18a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z" />
+  </svg>
+)
