@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { submitRegistration } from '../lib/submit'
 import { WILAYAS } from '../lib/wilayas'
-import { DEADLINE, PRICES, formatDA } from '../config'
+import { DEADLINE, PHONES, PRICES, formatDA } from '../config'
+import { PhoneIcon } from './Icons'
 import { Reveal } from './Motion'
 
 const initial = {
@@ -213,6 +214,15 @@ export default function RegisterForm() {
               </motion.li>
             ))}
           </ul>
+          <div className="aside-contact">
+            <p>للاستفسار اتصل بمدرسة السبورة:</p>
+            {PHONES.map((p) => (
+              <a key={p.tel} href={`tel:${p.tel}`} className="aside-phone">
+                <PhoneIcon width={20} height={20} />
+                <span dir="ltr">{p.display}</span>
+              </a>
+            ))}
+          </div>
         </Reveal>
 
         <Reveal delay={0.15} className="form-card">

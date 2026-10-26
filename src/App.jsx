@@ -13,6 +13,7 @@ import Pricing from './components/Pricing'
 import Documents from './components/Documents'
 import RegisterForm from './components/RegisterForm'
 import Footer from './components/Footer'
+import CallButton from './components/CallButton'
 
 export default function App() {
   const { scrollYProgress } = useScroll()
@@ -49,6 +50,7 @@ export default function App() {
         <RegisterForm />
       </main>
       <Footer />
+      <CallButton />
     </>
   )
 }

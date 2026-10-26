@@ -14,3 +14,9 @@ export const PRICES = {
 export const DEADLINE = '17 نوفمبر 2026'
 
 export const formatDA = (n) => `${n.toLocaleString('en-US')} دج`
+
+// Esaboura school phone numbers
+export const PHONES = [
+  { display: '0676 10 13 71', tel: '+213676101371' },
+  { display: '0561 46 84 57', tel: '+213561468457' },
+]

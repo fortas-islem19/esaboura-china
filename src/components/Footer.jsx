@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import logo from '../assets/logo-mark.png'
 import { Pop } from './Motion'
+import { PHONES } from '../config'
+import { PhoneIcon } from './Icons'
 
 export default function Footer() {
   return (
@@ -28,6 +30,15 @@ export default function Footer() {
         <Pop delay={0.6}>
           <span className="pill pill-yellow">تابعونا للمزيد</span>
         </Pop>
+        <div className="footer-contact">
+          <span>للاستفسار والتسجيل:</span>
+          {PHONES.map((p) => (
+            <a key={p.tel} href={`tel:${p.tel}`} className="pill pill-white">
+              <PhoneIcon width={18} height={18} />
+              <span dir="ltr">{p.display}</span>
+            </a>
+          ))}
+        </div>
         <small>© {new Date().getFullYear()} السبورة — جميع الحقوق محفوظة</small>
       </div>
     </footer>
