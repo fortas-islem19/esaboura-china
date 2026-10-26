@@ -1,4 +1,5 @@
 import { motion, useScroll, useSpring } from 'framer-motion'
+import Backdrop from './components/Backdrop'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import VideoSection from './components/VideoSection'
@@ -34,6 +35,7 @@ export default function App() {
           zIndex: 60,
         }}
       />
+      <Backdrop />
       <Navbar />
       <main>
         <Hero />

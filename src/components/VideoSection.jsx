@@ -47,8 +47,6 @@ export default function VideoSection() {
 
   return (
     <section className="video-section purple-bg" id="video">
-      <div className="glow" style={{ width: 380, height: 380, background: '#dc240c', top: '20%', right: '-6%', opacity: 0.3 }} />
-
       <div className="container">
         <div className="section-head video-head">
           <Reveal>

@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
-import logo from '../assets/logo-mark.png'
+import logo from '../assets/logo-mark-purple.png'
 import { Pop } from './Motion'
 import { PHONES } from '../config'
 import { PhoneIcon } from './Icons'
 
 export default function Footer() {
   return (
-    <footer className="footer purple-bg" style={{ background: 'radial-gradient(70% 60% at 50% 30%, #8a0bd6, #3c0661 70%, #26043f)' }}>
+    <footer className="footer purple-bg">
       <div className="container">
         <motion.img
           src={logo}

@@ -30,20 +30,20 @@ export default function Location() {
             <svg viewBox="0 0 460 420" role="img" aria-label="مسار الرحلة من الجزائر إلى شيجياتشوانغ">
               <defs>
                 <radialGradient id="globe" cx="40%" cy="35%">
-                  <stop offset="0" stopColor="#8a0bd6" stopOpacity="0.55" />
-                  <stop offset="1" stopColor="#26043f" stopOpacity="0" />
+                  <stop offset="0" stopColor="#c9a3f5" stopOpacity="0.45" />
+                  <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
                 </radialGradient>
               </defs>
               <circle cx="230" cy="210" r="200" fill="url(#globe)" />
               {[60, 110, 160, 200].map((r) => (
-                <circle key={r} cx="230" cy="210" r={r} fill="none" stroke="rgba(255,255,255,.08)" strokeDasharray="2 8" />
+                <circle key={r} cx="230" cy="210" r={r} fill="none" stroke="rgba(138,11,214,.14)" strokeDasharray="2 8" />
               ))}
 
-              <path d={route} fill="none" stroke="rgba(255,255,255,.15)" strokeWidth="3" strokeDasharray="6 10" />
+              <path d={route} fill="none" stroke="rgba(138,11,214,.18)" strokeWidth="3" strokeDasharray="6 10" />
               <motion.path
                 d={route}
                 fill="none"
-                stroke="#fcd31c"
+                stroke="#8a0bd6"
                 strokeWidth="4"
                 strokeLinecap="round"
                 initial={{ pathLength: 0 }}
@@ -55,15 +55,15 @@ export default function Location() {
               {/* Plane flying along the route; the icon points up, so rotate it to face the path direction */}
               <g aria-hidden="true">
                 <animateMotion dur="4.5s" repeatCount="indefinite" rotate="auto" path={route} keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" />
-                <g transform="rotate(90) translate(-17 -17)" fill="#fff">
+                <g transform="rotate(90) translate(-17 -17)" fill="#3c0661">
                   <PlaneIcon width={34} height={34} />
                 </g>
               </g>
 
               {/* Origin */}
               <g>
-                <circle cx="60" cy="330" r="9" fill="#fff" />
-                <text x="60" y="370" textAnchor="middle" fill="#fff" fontSize="20" fontWeight="700">
+                <circle cx="60" cy="330" r="9" fill="#8a0bd6" />
+                <text x="60" y="370" textAnchor="middle" fill="#3c0661" fontSize="20" fontWeight="700">
                   الجزائر
                 </text>
               </g>
