@@ -10,12 +10,15 @@ The branding follows the Esaboura "CHINA" motion video: deep purple backgrounds 
 2. Video: a wide 16:9 player with a branded thumbnail, plus topic buttons that jump to each part of the video
 3. The trip: سياحية · ثقافية, with polaroid photos
 4. Winter break dates: 17 December → 1 January, falling snow, a 16-day counter
-5. Location: Hebei province near Beijing, with an animated flight route
-6. What the offer includes: plane ticket, visa, accommodation
-7. Certificate from a Chinese university
-8. Student discount, and a seat grid showing the limited places
-9. Registration form with validation and an animated success state
-10. Footer
+5. Location: Shijiazhuang (Hebei) and Hebei International Studies University, with an animated flight route
+6. Daily programme, 18 → 31 December
+7. What the offer includes, and what it doesn't
+8. Participation certificate
+9. Prices: students 398,000 DA, workers 450,000 DA, and the 17 November deadline
+10. Student discount, and a seat grid showing the limited places
+11. Required documents and travel checklist
+12. Registration form (FormBold) with validation and an animated success state
+13. Footer
 
 The page is right-to-left Arabic throughout. Animations respect `prefers-reduced-motion`.
 
@@ -28,20 +31,27 @@ npm run build    # production build in dist/
 npm run preview  # serve the production build
 ```
 
-## Receiving form submissions
+## Receiving form submissions (FormBold)
 
-The form sends each registration as JSON with a `POST` to the URL in `VITE_FORM_ENDPOINT`:
+The registration form sends each submission to [FormBold](https://formbold.com) as JSON, with Arabic field names so the notification emails are easy to read.
 
-```bash
-cp .env.example .env
-# then set VITE_FORM_ENDPOINT=https://formspree.io/f/xxxxxxx (or any webhook / API URL)
-```
+1. Create a form in the FormBold dashboard.
+2. Copy its form ID (Settings → Integration; it's the part after `https://formbold.com/s/`).
+3. Put it in `src/config.js`:
 
-The endpoint can be Formspree, a Google Apps Script web app that writes to a Google Sheet, a Make or Zapier webhook, or your own API.
+   ```js
+   export const FORMBOLD_FORM_ID = 'your-form-id'
+   ```
 
-If `VITE_FORM_ENDPOINT` is not set, the form runs in **demo mode**: it shows the success screen and logs the data to the browser console, but nothing is saved.
+To use another service instead, set `VITE_FORM_ENDPOINT` in `.env`; it takes priority over the FormBold ID.
 
-Fields sent: `fullName`, `phone`, `email`, `age`, `wilaya`, `status`, `field`, `passport`, `notes`, `consent`, `submittedAt`, `source`.
+If neither is set, the form runs in **demo mode**: it shows the success screen and logs the data to the browser console, but nothing is saved.
+
+Fields sent: الاسم الكامل، رقم الهاتف (واتساب)، البريد الإلكتروني، العمر، الولاية، الصفة، السعر المطبّق، التخصص / المؤسسة، جواز السفر، ملاحظات، موافقة على التواصل، تاريخ الإرسال، المصدر.
+
+## Programme details
+
+Prices, dates and the deadline live in `src/config.js`. The daily programme (`src/components/Program.jsx`), what's included (`Offer.jsx`) and the required documents (`Documents.jsx`) come from the Winter Camp catalogue in the Google Drive "China" folder.
 
 ## Project structure
 

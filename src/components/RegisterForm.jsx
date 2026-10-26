@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { submitRegistration } from '../lib/submit'
 import { WILAYAS } from '../lib/wilayas'
+import { DEADLINE, PRICES, formatDA } from '../config'
 import { Reveal } from './Motion'
 
 const initial = {
@@ -17,7 +18,14 @@ const initial = {
   consent: false,
 }
 
-const STATUSES = ['طالب جامعي', 'تلميذ', 'خرّيج', 'أخرى']
+const STATUSES = ['طالب جامعي', 'تلميذ', 'عامل / موظف', 'أخرى']
+
+// Students pay the student price; workers (and anyone not studying) pay the worker price
+const priceFor = (status) => {
+  if (status === 'طالب جامعي' || status === 'تلميذ') return PRICES.student
+  if (status === 'عامل / موظف' || status === 'أخرى') return PRICES.worker
+  return null
+}
 const PASSPORT = ['نعم، ساري المفعول', 'قيد الإنجاز', 'لا']
 
 function validate(v) {
@@ -161,7 +169,8 @@ export default function RegisterForm() {
     }
     setState('sending')
     try {
-      await submitRegistration(values)
+      const price = priceFor(values.status)
+      await submitRegistration({ ...values, price: price ? formatDA(price) : '' })
       setState('done')
     } catch (err) {
       console.error(err)
@@ -185,7 +194,13 @@ export default function RegisterForm() {
           </h2>
           <p>املأ الاستمارة وسيتواصل معك فريق السبورة لتأكيد التسجيل وتزويدك بباقي تفاصيل الرحلة.</p>
           <ul>
-            {['تذكرة الطائرة والفيزا والإقامة', '16 يوماً من 17 ديسمبر إلى 1 جانفي', 'شهادة من جامعة صينية', 'تخفيض خاص للطلبة'].map((t, i) => (
+            {[
+              'تذكرة الطائرة والفيزا والإقامة',
+              '17 ديسمبر ← 1 جانفي في شيجياتشوانغ',
+              'الإقامة في جامعة خبي للدراسات الدولية',
+              `الطلبة ${formatDA(PRICES.student)} — العمال ${formatDA(PRICES.worker)}`,
+              `آخر أجل لإيداع الملف: ${DEADLINE}`,
+            ].map((t, i) => (
               <motion.li
                 key={t}
                 initial={{ opacity: 0, x: 30 }}
@@ -237,6 +252,19 @@ export default function RegisterForm() {
 
                   <Field label="الصفة" name="status" error={errors.status} required full>
                     <Choices name="status" options={STATUSES} value={values.status} onChange={onChange} />
+                    <AnimatePresence mode="wait">
+                      {priceFor(values.status) && (
+                        <motion.span
+                          key={values.status}
+                          className="price-hint"
+                          initial={{ opacity: 0, y: -6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0 }}
+                        >
+                          السعر المطبّق: <b>{formatDA(priceFor(values.status))}</b>
+                        </motion.span>
+                      )}
+                    </AnimatePresence>
                   </Field>
 
                   <Field label="التخصص / المؤسسة" name="field" full>

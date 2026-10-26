@@ -1,17 +1,39 @@
-const ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT
+import { FORM_ENDPOINT } from '../config'
 
-// Sends a registration as JSON to VITE_FORM_ENDPOINT (Formspree, Google Apps Script,
-// a webhook, or your own API). Without an endpoint the form runs in demo mode.
+// Readable field names, so the emails FormBold sends are easy to read
+const LABELS = {
+  fullName: 'الاسم الكامل',
+  phone: 'رقم الهاتف (واتساب)',
+  email: 'البريد الإلكتروني',
+  age: 'العمر',
+  wilaya: 'الولاية',
+  status: 'الصفة',
+  price: 'السعر المطبّق',
+  field: 'التخصص / المؤسسة',
+  passport: 'جواز السفر',
+  notes: 'ملاحظات',
+  consent: 'موافقة على التواصل',
+}
+
+// Sends a registration as JSON to FormBold (or VITE_FORM_ENDPOINT).
+// Without an endpoint the form runs in demo mode.
 export async function submitRegistration(data) {
-  const payload = { ...data, submittedAt: new Date().toISOString(), source: 'esaboura-china-landing' }
+  const payload = {}
+  for (const [key, label] of Object.entries(LABELS)) {
+    const value = data[key]
+    if (value === undefined || value === '') continue
+    payload[label] = typeof value === 'boolean' ? (value ? 'نعم' : 'لا') : value
+  }
+  payload['تاريخ الإرسال'] = new Date().toISOString()
+  payload['المصدر'] = 'صفحة رحلة الصين - السبورة'
 
-  if (!ENDPOINT) {
-    console.info('[demo] VITE_FORM_ENDPOINT is not set; registration not sent:', payload)
+  if (!FORM_ENDPOINT) {
+    console.info('[demo] No FormBold form ID set; registration not sent:', payload)
     await new Promise((r) => setTimeout(r, 900))
     return
   }
 
-  const res = await fetch(ENDPOINT, {
+  const res = await fetch(FORM_ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify(payload),

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import planetImg from '../assets/forbidden-city.jpg'
 import { spring } from './Motion'
+import { PRICES, formatDA } from '../config'
 
 const headline = ['اطلبوا', 'العلم', 'ولو', 'في', 'الصين']
 
@@ -45,7 +46,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.3, duration: 0.8 }}
           >
-            رحلة سياحية ثقافية إلى الصين خلال عطلة الشتاء، تشمل تذكرة الطائرة والفيزا والإقامة، وتختتم بشهادة من جامعة صينية.
+            مخيم شتوي سياحي ثقافي في مدينة شيجياتشوانغ الصينية، مع الإقامة في جامعة خبي للدراسات الدولية. يشمل تذكرة الطائرة والفيزا والإقامة، ويُختتم بشهادة مشاركة.
           </motion.p>
 
           <motion.div
@@ -57,7 +58,7 @@ export default function Hero() {
             {[
               { cls: 'pill-red', text: '17 ديسمبر ← 1 جانفي' },
               { cls: 'pill-white', text: '16 يوماً' },
-              { cls: 'pill-yellow', text: 'تخفيض خاص للطلبة' },
+              { cls: 'pill-yellow', text: `للطلبة ${formatDA(PRICES.student)}` },
             ].map((c) => (
               <motion.span
                 key={c.text}

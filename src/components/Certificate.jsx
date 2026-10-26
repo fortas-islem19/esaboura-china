@@ -16,9 +16,9 @@ export default function Certificate() {
         <Reveal className="section-head">
           <span className="pill pill-yellow">وختامها</span>
           <h2 style={{ marginTop: 18 }}>
-            شهادة من <span className="hl">جامعة صينية</span>
+            شهادة <span className="hl">المشاركة</span>
           </h2>
-          <p>تُختتم الرحلة بشهادة مشاركة صادرة عن جامعة صينية.</p>
+          <p>يُختتم المخيم بشهادة المشاركة في المخيم الشتوي بجامعة خبي للدراسات الدولية. (غيابان غير مبرّرين عن الأنشطة يُسقطان الحق في الشهادة)</p>
         </Reveal>
 
         <motion.div
@@ -28,7 +28,7 @@ export default function Certificate() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <img src={gate} alt="بوابة جامعة صينية" loading="lazy" />
+          <img src={gate} alt="بوابة جامعية في الصين" loading="lazy" />
 
           <motion.div
             className="certificate"
@@ -38,7 +38,7 @@ export default function Certificate() {
             transition={{ type: 'spring', stiffness: 90, damping: 13, delay: 0.4 }}
           >
             <h3>شهادة</h3>
-            <p>من جامعة صينية</p>
+            <p>جامعة خبي للدراسات الدولية</p>
             <div className="lines">
               <span style={{ width: '80%' }} />
               <span style={{ width: '65%' }} />
