@@ -172,6 +172,13 @@ export default function RegisterForm() {
     try {
       const price = priceFor(values.status)
       await submitRegistration({ ...values, price: price ? formatDA(price) : '' })
+      // Meta Pixel: count a completed registration as a Purchase
+      window.fbq?.('track', 'Purchase', {
+        value: price || 0,
+        currency: 'DZD',
+        content_name: 'رحلة الصين - السبورة',
+        content_category: values.status,
+      })
       setState('done')
     } catch (err) {
       console.error(err)
