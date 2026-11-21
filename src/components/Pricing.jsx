@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { DEADLINE, PRICES } from '../config'
+import { DEADLINE, DEADLINE_EXTENDED, PRICES } from '../config'
 import { CheckIcon, ClockIcon } from './Icons'
 import { Counter, Reveal } from './Motion'
 
@@ -12,9 +12,17 @@ const plans = [
     featured: true,
   },
   {
+    key: 'teacher',
+    title: 'الأساتذة',
+    note: 'وعمّال قطاع التربية والتعليم العالي',
+    tag: 'جديد: نفس سعر الطلبة',
+    price: PRICES.student,
+    featured: true,
+  },
+  {
     key: 'worker',
-    title: 'العمال',
-    tag: 'الموظفون وغير الطلبة',
+    title: 'باقي المشتركين',
+    tag: 'العمال وغير الطلبة',
     price: PRICES.worker,
   },
 ]
@@ -30,6 +38,9 @@ export default function Pricing() {
             <span className="hl">الأسعار</span> والتواريخ
           </h2>
           <p>من 17 ديسمبر 2026 إلى 1 جانفي 2027 — سعر واحد يشمل الطيران، الفيزا والإقامة.</p>
+          <p>
+            <b>جديد:</b> الأساتذة وعمّال قطاع التربية والتعليم العالي يستفيدون من نفس سعر الطلبة.
+          </p>
         </Reveal>
 
         <div className="plans">
@@ -45,6 +56,7 @@ export default function Pricing() {
             >
               <span className={`pill ${p.featured ? 'pill-yellow' : 'pill-white'}`}>{p.tag}</span>
               <h3>{p.title}</h3>
+              {p.note && <p className="plan-note">{p.note}</p>}
               <div className="plan-price">
                 <Counter from={Math.round(p.price * 0.6)} to={p.price} duration={1.4} className="amount" format={(v) => v.toLocaleString('en-US')} />
                 <span className="cur">دج</span>
@@ -69,7 +81,7 @@ export default function Pricing() {
         <Reveal delay={0.2} className="deadline">
           <ClockIcon width={26} height={26} />
           <span>
-            آخر أجل لإيداع الملف: <b>{DEADLINE}</b>
+            {DEADLINE_EXTENDED ? 'تم تمديد آخر أجل للتسجيل إلى غاية' : 'آخر أجل للتسجيل:'} <b>{DEADLINE}</b>
           </span>
         </Reveal>
         <p className="program-note">الأكل والمصاريف الشخصية غير مشمولة في السعر.</p>

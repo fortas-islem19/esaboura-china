@@ -76,9 +76,12 @@ export default function Deal() {
       <div className="container">
         <Reveal className="section-head">
           <h2>
-            مع <span className="hl">تخفيض خاص</span> للطلبة
+            مع <span className="hl">تخفيض خاص</span> للطلبة والأساتذة
           </h2>
-          <p>والمقاعد محدودة جداً — سارع بالتسجيل قبل نفاد الأماكن.</p>
+          <p>
+            الأساتذة وعمّال قطاع التربية والتعليم العالي يدفعون نفس سعر الطلبة. المقاعد ما زالت متوفرة إلى نهاية الشهر لكنها
+            محدودة جداً — سارع بالتسجيل.
+          </p>
         </Reveal>
 
         <div className="deal-grid">

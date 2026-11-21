@@ -19,12 +19,14 @@ const initial = {
   consent: false,
 }
 
-const STATUSES = ['طالب جامعي', 'تلميذ', 'عامل / موظف', 'أخرى']
+const TEACHER = 'أستاذ / عامل في التربية أو التعليم العالي'
+const WORKER = 'عامل / موظف في قطاع آخر'
+const STATUSES = ['طالب جامعي', 'تلميذ', TEACHER, WORKER, 'أخرى']
 
-// Students pay the student price; workers (and anyone not studying) pay the worker price
+// Students, teachers and education / higher-education workers pay the student price; everyone else the worker price
 const priceFor = (status) => {
-  if (status === 'طالب جامعي' || status === 'تلميذ') return PRICES.student
-  if (status === 'عامل / موظف' || status === 'أخرى') return PRICES.worker
+  if (status === 'طالب جامعي' || status === 'تلميذ' || status === TEACHER) return PRICES.student
+  if (status === WORKER || status === 'أخرى') return PRICES.worker
   return null
 }
 const PASSPORT = ['نعم، ساري المفعول', 'قيد الإنجاز', 'لا']
@@ -206,8 +208,8 @@ export default function RegisterForm() {
               'تذكرة الطائرة والفيزا والإقامة',
               '17 ديسمبر ← 1 جانفي في شيجياتشوانغ',
               'الإقامة في جامعة خبي للدراسات الدولية',
-              `الطلبة ${formatDA(PRICES.student)} — العمال ${formatDA(PRICES.worker)}`,
-              `آخر أجل لإيداع الملف: ${DEADLINE}`,
+              `الطلبة والأساتذة ${formatDA(PRICES.student)} — باقي المشتركين ${formatDA(PRICES.worker)}`,
+              `تم تمديد آخر أجل للتسجيل إلى ${DEADLINE}`,
             ].map((t, i) => (
               <motion.li
                 key={t}
