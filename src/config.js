@@ -7,11 +7,13 @@ export const FORM_ENDPOINT =
 
 // Programme details from the Winter Camp catalogue (Google Drive › China)
 export const PRICES = {
-  student: 398000,
-  worker: 450000,
+  student: 398000, // students, and (since Nov 2026) teachers and education / higher-education workers
+  worker: 450000, // everyone else
 }
 
-export const DEADLINE = '17 نوفمبر 2026'
+// Extended from 17 November (announced in the "CHINA NEW" video, Nov 2026)
+export const DEADLINE = '30 نوفمبر 2026'
+export const DEADLINE_EXTENDED = true
 
 export const formatDA = (n) => `${n.toLocaleString('en-US')} دج`
 

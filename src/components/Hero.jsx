@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import planetImg from '../assets/forbidden-city.jpg'
 import { spring } from './Motion'
-import { PRICES, formatDA } from '../config'
+import { DEADLINE, PRICES, formatDA } from '../config'
 
 const headline = ['اطلبوا', 'العلم', 'ولو', 'في', 'الصين']
 
@@ -55,8 +55,9 @@ export default function Hero() {
             {[
               { cls: 'pill-red', text: '17 ديسمبر ← 1 جانفي' },
               { cls: 'pill-white', text: '16 يوماً' },
-              { cls: 'pill-yellow', text: `للطلبة ${formatDA(PRICES.student)}` },
-              { cls: 'pill-yellow', text: `لغير الطلبة ${formatDA(PRICES.worker)}` },
+              { cls: 'pill-yellow', text: `للطلبة والأساتذة ${formatDA(PRICES.student)}` },
+              { cls: 'pill-yellow', text: `لباقي المشتركين ${formatDA(PRICES.worker)}` },
+              { cls: 'pill-white', text: `التسجيل ممدّد حتى ${DEADLINE}` },
             ].map((c) => (
               <motion.span
                 key={c.text}

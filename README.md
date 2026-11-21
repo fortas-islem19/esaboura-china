@@ -14,8 +14,8 @@ The branding follows the Esaboura "CHINA" motion video: deep purple backgrounds 
 6. Daily programme, 18 → 31 December
 7. What the offer includes, and what it doesn't
 8. Participation certificate
-9. Prices: students 398,000 DA, workers 450,000 DA, and the 17 November deadline
-10. Student discount, and a seat grid showing the limited places
+9. Prices: students and (since November 2026) teachers / education and higher-education workers 398,000 DA, everyone else 450,000 DA; registration deadline extended from 17 to 30 November 2026
+10. Student and teacher discount, and a seat grid showing the limited places
 11. Required documents and travel checklist
 12. Registration form (FormBold) with validation and an animated success state
 13. Footer
